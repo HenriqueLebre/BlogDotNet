@@ -70,6 +70,9 @@ namespace Blog.Controllers
             [FromBody] EditorCategoryViewModel model,
             [FromRoute] BlogDataContext context)
         {
+            if(!ModelState.IsValid)
+                return BadRequest();
+
             try
             {
                 var category = await context
