@@ -1,4 +1,5 @@
 ﻿using Blog.Data;
+using Blog.Extensions;
 using Blog.Models;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace Blog.Controllers
             [FromServices] BlogDataContext context)
         {
             var categories = await context.Categories.ToListAsync();
-            return Ok(categories);
+            return Ok(new ResultViewModel<List<Category>>(categories));
         }
 
 
@@ -28,7 +29,7 @@ namespace Blog.Controllers
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (category == null)
-                return NotFound();
+                return NotFound(new ResultViewModel<Category>("Conteúdo não encontrado"));
 
             return Ok(category);
         }
@@ -39,6 +40,11 @@ namespace Blog.Controllers
             [FromBody] EditorCategoryViewModel model,
             [FromRoute] BlogDataContext context)
         {
+            if (!ModelState.IsValid) 
+            
+                return BadRequest(new ResultViewModel<Category>(ModelState.GetErrors()));
+
+
             try
             {
                 var category = new Category
