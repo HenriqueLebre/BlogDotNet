@@ -3,10 +3,9 @@ using Blog.Extensions;
 using Blog.Models;
 using Blog.Services;
 using Blog.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+using SecureIdentity.Password;
 
 namespace Blog.Controllers;
 
@@ -24,10 +23,37 @@ public class AccountController : ControllerBase
 
         var user = new User
         {
-            nameof = model.Name,
+            Name = model.Name,
             Email = model.Email,
-            slug = model.Email.Replace("@", "-").Replace(".", "-")
+            Slug = model.Email.Replace("@", "-").Replace(".", "-")
         };
+
+        var password = PasswordGenerator.Generate(25);
+        user.PasswordHash = PasswordHasher.Hash(password);
+
+        try
+        {
+            await context.Users.AddAsync(user);
+            await context.SaveChanges();
+
+            return Ok(new ResultViewModel<dynamic>(new
+            {
+                user = user.Email,
+                password
+            }));
+
+        }
+        catch (DbUpdateException)
+        {
+
+            return StatusCode(400, new ResultViewModel<string>("05X99 - Este e-mail já está cadastrado!"));
+        }
+        catch
+        {
+
+            return StatusCode(500, new ResultViewModel<string>("05X88 - Falha no servidor."));
+        }
+
     }
 
     [HttpPost("v1/accounts/login")]

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Px4vMBPTZTfarGxaCVmf9xnnHQ98b/uCL2q6j+Mwa7JZKnOw+DajEv7cQAVHInVPLyzEjIRT4rO3EuUL51FgVQ==",
+  "dgSpecHash": "HEuVny47zXZrdt38N9o2kuiMODBlFEWJDhoe7EOfHbS6n3LYlW0Xgt6mV0b0cDrL99wA3yTJ4ioKG5EA4MtPnQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Henrique Lebre\\Desktop\\projetos\\balta\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
@@ -60,6 +60,7 @@
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Henrique Lebre\\.nuget\\packages\\secureidentity\\1.0.4\\secureidentity.1.0.4.nupkg.sha512",
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Henrique Lebre\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
