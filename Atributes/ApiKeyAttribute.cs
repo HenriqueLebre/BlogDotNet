@@ -28,7 +28,7 @@ public class ApiKeyAttribute : Attribute, IAsyncActionFilter
 
         }
 
-        if(!Configuration.ApiKey.Equals(extractedApiKey))
+        if (!Configuration.ApiKey.Equals(extractedApiKey))
         {
             context.Result = new ContentResult()
             {
