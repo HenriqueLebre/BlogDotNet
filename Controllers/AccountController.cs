@@ -13,7 +13,7 @@ namespace Blog.Controllers;
 public class AccountController : ControllerBase
 {
 
-    [HttpPost("v/accounts/")]
+    [HttpPost("v1/accounts/")]
     public async Task<IActionResult> Post(
         [FromBody] RegisterViewModel model,
         [FromServices] BlogDataContext context)
